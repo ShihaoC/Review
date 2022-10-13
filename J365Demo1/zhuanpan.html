@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 40px;
+            border: 1px solid red;
+            top: 400px
+        }
+
+        input {
+            margin: 0 4px 0 4px;
+        }
+
+        .randomBox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            top: 200px
+        }
+
+        .cercle {
+            height: 180px;
+            width: 300px;
+        }
+
+        .item {
+            width: 90px;
+            height: 90px;
+            border: 1px solid red;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top">
+            <input type="text" value="" id="inputNum">
+            <input type="button" onclick="choujiang()" value="抽奖">
+        </div>
+        <div class="randomBox">
+            <div class="cercle">
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <div class="cercle">
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let items = document.getElementsByClassName("item")
+    let random = 0;
+    setInterval(() => {
+        random = Math.floor(0 + Math.random() * (4 - 0))
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].style.background != '') {
+                items[i].style.background = '';
+            }
+        }
+        if (random == 0) {
+            items[random].style.background = 'red'
+        }
+        if (random == 1) {
+            items[random].style.background = 'green'
+        }
+        if (random == 2) {
+            items[random].style.background = 'blue'
+        }
+        if (random == 3) {
+            items[random].style.background = 'yellow'
+        }
+    }, 1000);
+
+    function choujiang() {
+        let input = document.getElementById("inputNum").value
+        let color = [
+            { id: 0, color: 'red' },
+            { id: 1, color: 'green' },
+            { id: 2, color: 'blue' },
+            { id: 3, color: 'yellow' }
+        ]
+        if (input == color[random].color) {
+            console.log("ok");
+        } else {
+            console.log(123);
+        }
+    }
+</script>
+
+</html>

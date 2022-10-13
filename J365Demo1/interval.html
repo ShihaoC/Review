@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            width: 300px;
+            height: 250px;
+            border: 1px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img">
+        <img src="./img/a.png" alt="" width="200px" id="img1">
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        let i = 0;
+        let arr = ["000000.jpg", "000001.jpg", "000002.jpg", "000003.jpg", "000004.jpg", "000005.jpg", "000006.jpg", "000007.jpg"]
+        let img = document.getElementById("img1")
+        let interval;
+        function gb() {
+            i++;
+            i = (i == arr.length ? 0 : i++);
+            img.setAttribute("src", "./img/" + arr[i])
+            console.log(i);
+        }
+
+        img.onmouseover = function () {
+            interval = setInterval(() => {
+                gb();
+            }, 100);
+        }
+        img.onmouseleave = function () {
+            clearInterval(interval)
+        }
+    }
+</script>
+
+</html>

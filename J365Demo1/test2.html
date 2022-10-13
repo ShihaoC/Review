@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 10px 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+        }
+
+        .img {
+            position: absolute;
+            display: block;
+            top: 20px;
+        }
+
+        .text {
+            position: absolute;
+            display: block;
+            bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <img src="./img/a.png" alt="" class="img" width="100">
+            <span class="text">说明 A</span>
+        </div>
+        <div class="box">
+            <img src="./img/d.png" alt="" class="img" width="100">
+            <span class="text">说明 B</span>
+        </div>
+        <div class="box">
+            <img src="./img/c.png" alt="" class="img" width="100">
+            <span class="text">说明 C</span>
+        </div>
+    </div>
+</body>
+<script>
+    let imgs = document.getElementsByTagName("img")
+    let texts = document.getElementsByTagName("span")
+
+    for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onmouseover = function () {
+            this.setAttribute("width", "120")
+        }
+        imgs[i].onmouseleave = function () {
+            this.setAttribute("width", "100")
+        }
+    }
+
+    for (var i = 0; i < texts.length; i++) {
+        texts[i].onmouseover = function () {
+            this.style.color = "red"
+        }
+        texts[i].onmouseleave = function () {
+            this.style.color = "black"
+        }
+    }
+</script>
+
+</html>

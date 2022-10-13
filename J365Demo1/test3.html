@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 50vw;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            transition: 0.4s cubic-bezier(0.38, 0.03, 0.07, 1.05);
+
+            margin: 0 10px 0 10px;
+            height: 30vh;
+            background-color: rgba(2, 182, 253, 0.6);
+            display: inline-block;
+            border-radius: 8px;
+            width: 8vw;
+            font-size: 3vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="box" style="width: 8vw;"></div>
+        <div class="box" style="width: 8vw;"></div>
+        <div class="box" style="width: 8vw;"></div>
+        <div class="box" style="width: 28vw;background-color: #02b6fd;"></div>
+    </div>
+</body>
+<script>
+    let boxes = document.getElementsByClassName("box")
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].onmouseover = function () {
+            for (var j = 0; j < boxes.length; j++) {
+                if (boxes[j].getAttribute("style") !== 'width: 8vw;background-color:#0a6489') {
+                    boxes[j].setAttribute("style", "width:8vw")
+                } else {
+
+                }
+                this.setAttribute("style", "width: 28vw;background-color:#02b6fd")
+            }
+        }
+    }
+</script>
+
+</html>
