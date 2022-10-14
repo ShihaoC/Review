@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="tb">
+        
+    </table>
+</body>
+<script>
+    window.onload = function () {
+        var str = '';
+        for (var i = 0; i < 10; i++) {
+            str += "<tr><td id='" + i + "'>" + i + "</td><td><input type='button' value='删除' onclick='del(this)'/></td></tr>"
+        }
+        document.getElementById("tb").innerHTML = str
+
+    }
+
+    function del(obj) {
+        obj.parentNode.parentNode.remove()
+    }
+</script>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tab {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="input">
+            <input type="text" name="name" value="NULL"> <input type="button" value="添加" onclick="add()">
+        </div>
+        <div class="table">
+            <table id="tab" border="1">
+                <tr id="head">
+                    <td>编号</td>
+                    <td>姓名</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    var id = 0;
+    let node = "";
+    function add() {
+        let tr = document.createElement("tr")
+        let td_id = document.createElement("td")
+        td_id.innerHTML = id;
+        let td_name = document.createElement("td")
+        td_name.innerHTML = document.getElementsByName("name")[0].value
+        let td_del = document.createElement("td")
+        td_del.innerHTML = "<input type = 'button' value = '删除' onclick='del(this)'>"
+        tr.append(td_id)
+        tr.append(td_name)
+        tr.append(td_del)
+        document.getElementById("tab").childNodes[1].appendChild(tr)
+        id++;
+    }
+    function del(obj) {
+        let lastId = document.getElementById('tab').childNodes[1].lastElementChild.firstElementChild.innerHTML
+        let thisId = obj.parentNode.parentNode.firstElementChild.innerHTML
+        if (lastId == thisId) {
+            id = id - 1;
+        }
+        obj.parentNode.parentNode.remove()
+    }
+</script>
+
+</html>
